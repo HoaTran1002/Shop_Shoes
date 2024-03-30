@@ -1,0 +1,76 @@
+﻿@using Shoes.Areas.Admin.Models
+
+@{
+    ViewData["Title"] = "EditProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+<h1>EDIT PRODUCT</h1>
+<form method="post" action="HandelEditProduct">
+    @{
+        Product pr = ViewBag.product;
+    }
+    <div class="form-add-product_background">
+        <div class="form_add-product">
+            <div class="form_add-product_left" style="margin-right: 10px;">
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input value="@pr.TENSP" name="TENSP" type="text" class="form-control add-product_input">
+                </div>
+                <div cwidthrm-group">
+                    <label>Description</label>
+                    <input value="@pr.MOTA" type="text" class="form-control add-product_input" name="MOTA">
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <input value="@pr.HINHANH" type="file" class="form-control add-product_input" name="HINHANH">
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input value="@pr.GIA" type="text" class="form-control add-product_input" name="GIA">
+                </div>
+            </div>
+            <div class="form_add-product_right">
+                <div class="form-group">
+                    <label>Size</label>
+                    <input value="@pr.KICHTHUOC" type="text" class="form-control add-product_input" name="KICHTHUOC">
+                </div>
+
+                <div class="form-group ">
+                    <label>number of shoes</label>
+                    <input value="@pr.SOLUONG" type="text" class="form-control add-product_input" name="SOLUONG">
+                </div>
+                <div class="form-group ">
+                    <label>color codes</label>
+                    <select class="form-control add-product_input" name="MAMAU">
+                        <option value="@pr.MAMAU">@pr.MAMAU</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group ">
+                    <label>shoe codes</label>
+                    <select class="form-control add-product_input" name="MALOAI">
+                        <option value="@pr.MALOAI">@pr.MALOAI</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <input name="id" value="@pr.MASP" hidden/>
+        <div style="width:100%;">
+            <button type="submit" class="btn btn-primary btn-submit-add-product" style="margin:auto; display:inherit;">Submit</button>
+        </div>
+
+    </div>
+
+
+</form>
+
