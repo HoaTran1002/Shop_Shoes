@@ -1,0 +1,74 @@
+﻿@using Shoes.Areas.Admin.Models
+
+@{
+    ViewData["Title"] = "CategoryProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+  
+}
+
+
+<div class="d-flex">
+    
+    <div>
+        <form action="AddProduct" method="get">
+            <button type="submit">ADD PRODUCT</button>
+        </form>
+    </div>
+    
+
+</div>
+
+<div class ="container_category-product">
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">TÊN SẢN PHẨM</th>
+                <th scope="col">HÌNH ẢNH</th>
+                <th scope="col">MÔ TẢ</th>
+                <th scope="col">GIÁ</th>
+                <th scope="col">SETTING</th>
+
+            </tr>
+        </thead>
+        <tbody >
+
+            @if (@ViewBag.listProduct != null)
+            {
+                foreach (Product prd in @ViewBag.listProduct)
+                {
+                    <tr>
+                        <td>@prd.TENSP</td>
+                        <td>
+                            
+                            <img src="~/Assets/Admin/Files/@prd.HINHANH" />
+                            
+                        </td>
+                        <td>@prd.MOTA</td>
+                        <td>@prd.GIA</td>
+                        <td>
+                            <form method="post" action="EditProduct">
+                                <input hidden name="id" value="@prd.MASP" />
+                                <button type="submit">EDIT</button>
+                            </form>
+
+                            <span></span>
+                            <form method="post" action="DeleteProduct">
+                                <input hidden name="id" value="@prd.MASP" />
+                                <button type="submit">DELETE</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+
+            }
+            @{
+                <tr>
+                    <td colspan="5" style="text-align:center">
+                        <span><h4>List produc empty <a>add product now</a></h4></span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
